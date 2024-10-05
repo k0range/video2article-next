@@ -1,4 +1,7 @@
+<img src="https://github.com/user-attachments/assets/6f208fbd-77d3-4634-ac5c-a0a8a47e737b" height=64 align="right">
+
 # Video to Article (Next)
+
 動画をAIで記事に変換して読むことができるブラウザ拡張機能です。
 
 <video src="https://github.com/user-attachments/assets/03ea1add-bebe-4eb1-ba0b-0444658f07d5" controls="true"></video>
