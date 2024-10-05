@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Article Settings</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./script.js"></script>
+  </head>
+  <body>
+    <h1>設定</h1>
+    <div>
+      <label for="gemini-api-key">
+        <h2>Gemini API キー</h2>
+        <div class="required">*必須</div>
+      </label>
+      <p>Gemini の API キーです。<a href="https://ai.google.dev/gemini-api" target="_blank" rel="noopener noreferrer">公式サイト</a>から取得することができます。（従量課金を有効にしている場合、APIの使用料金が発生します）</p>
+      <input type="password" id="gemini-api-key" name="gemini-api-key" required>
+
+      <br>
+
+      <label for="custom-prompt">
+        <h2>カスタムプロンプト</h2>
+      </label>
+      <p>AIに追加で指示したいことを指定できます。<br>例）記事の最初に箇条書きで要約を書いてください。</p>
+      <textarea id="custom-prompt" name="custom-prompt" rows="5"></textarea>
+      
+      <button id="save_button">保存</button>
+    </div>
+  </body>
+</html>

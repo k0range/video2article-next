@@ -1,0 +1,239 @@
+<div class="effect" id="effect">
+  <div class="backdrop"></div>
+  <div class="rainbow-mist"></div>
+  <div class="horizontal-center">
+    <div class="generating-container">
+      <img class="icon-img">
+      <div class="generating-text">Generating</div>
+    </div>
+    <div class="article-container hidden">
+      <div>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+html {
+  overflow: hidden;
+}
+
+ytd-app:not(.closing) {
+  animation: blur 1s ease-in-out forwards;
+}
+
+ytd-app.closing {
+  animation: unblur 1s ease-in-out forwards;
+}
+
+@keyframes blur {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(8px);
+  }
+}
+
+@keyframes unblur {
+  from {
+    filter: blur(8px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
+
+.effect {
+  position: fixed;
+  z-index: 99999;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.horizontal-center {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 500;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.generating-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: large;
+  color: #ffffffdd;
+  text-align: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.article-container {
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.article-container iframe {
+  width: 67rem;
+}
+
+.close-button {
+  background-color: #00000055;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 4.8rem;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+  font-size: large;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+.sparkles img {
+  margin-bottom: 1rem;
+}
+
+.backdrop {
+  backdrop-filter: blur(8px);
+  background-color: #ffffff30;
+  opacity: 0.08;
+  background-size: 140px;
+  animation: noiseAnim 1s steps(10) infinite;
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  transition-duration: 1500ms;
+}
+
+.backdrop.generated {
+  filter: blur(8px);
+}
+
+@keyframes noiseAnim {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 300px 300px;
+  }
+}
+
+.rainbow-mist {
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  pointer-events: none;
+  animation: mistAnimation 8s ease-in-out infinite;
+  transform: scale(1.1);
+  opacity: 0.1;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 0, 0, 0.6) 0%, rgba(255, 0, 0, 0) 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 255, 0, 0.5) 0%, rgba(0, 255, 0, 0) 50%),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 255, 0.7) 0%, rgba(0, 0, 255, 0) 50%),
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 0, 0.4) 0%, rgba(255, 255, 0, 0) 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.2) 0%, rgba(255, 0, 255, 0) 50%);
+  background-size: 200% 200%;
+  mix-blend-mode: screen;
+}
+
+.rainbow-mist.generated {
+  animation: mistAnimation 32s ease-in-out infinite;
+}
+
+@keyframes mistAnimation {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+iframe {
+  animation: iframeAppear 1s ease-out forwards;
+  background-color: #212121;
+  border: 1px solid #3f3f3f;
+  border-radius: 12px;
+}
+
+@keyframes iframeAppear {
+  from {
+    transform: translateY(100vh);
+    opacity: 0.4;
+    filter: blur(8px);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fadeout {
+  animation: fadeOut 1s ease-in-out forwards;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+</style>
+
+<script>
+function closeEffect() {
+  const effectElement = document.getElementById("effect");
+  if (effectElement) {
+    effectElement.classList.add("fadeout");
+    effectElement.addEventListener("animationend", () => {
+      effectElement.remove();
+    });
+  }
+}
+</script>
