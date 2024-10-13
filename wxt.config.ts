@@ -12,7 +12,7 @@ export default defineConfig({
       128: "icon/128.png",
       256: "icon/256.png"
     },
-    version: "1.0.0",
+    version: "1.1.0",
     author: { email: "hi@korange.work" },
     action: {
       default_popup: undefined
