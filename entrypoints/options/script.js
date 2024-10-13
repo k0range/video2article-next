@@ -3,6 +3,7 @@ import { storage } from 'wxt/storage';
 function save() {
   storage.setItem('local:api_key', document.getElementById('gemini-api-key').value);
   storage.setItem('local:custom_prompt', document.getElementById('custom-prompt').value);
+  storage.setItem('local:includes_image', JSON.parse(document.getElementById('includes-image').value));
 
   document.getElementById('save_button').textContent = '保存しました！';
   document.getElementById('save_button').classList.add('saved');
@@ -15,6 +16,9 @@ function save() {
 function load() {
   storage.getItem('local:api_key').then((item) => {
     document.getElementById('gemini-api-key').value = item ?? '';
+  });
+  storage.getItem('local:includes_image').then((item) => {
+    document.getElementById('includes-image').value = item ?? 'true';
   });
   storage.getItem('local:custom_prompt').then((item) => {
     document.getElementById('custom-prompt').value = item ?? '';

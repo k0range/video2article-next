@@ -17,6 +17,7 @@ export default {
     return {
       title: '',
       content: '',
+      images: [],
     };
   },
   async mounted() {
@@ -24,6 +25,11 @@ export default {
 
     this.title = urlParams.get('title') || 'New Title';
     this.content = await marked(urlParams.get('content') || ""); // iframeでアドレスは見えないのでクソ長URLクエリでも問題ない！ﾖｼ！
+    this.images = JSON.parse(urlParams.get('images') || '[]');
+
+    this.content.match(/\[img\s\d+(?:\.\d+)?-\d+(?:\.\d+)?\]/g)?.forEach(async (match, index) => {
+      this.content = this.content.replace(match, `<img src="${this.images[index]}" />`);
+    });
 
     await nextTick();
 
@@ -38,6 +44,11 @@ export default {
 @tailwind utilities;
 
 * {
-  font-family: Hiragino Maru Gothic Pro,BIZ UDGothic,Roboto,HelveticaNeue,Arial,sans-serif;
+  font-family: sans-serif;
+}
+
+img {
+  border-radius: 8px;
+  border: 1px solid #3f3f3f;
 }
 </style>

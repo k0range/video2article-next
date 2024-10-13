@@ -44,13 +44,17 @@ a {
   text-decoration: none;
 }
 
-input, textarea {
+input, textarea, select {
   width: calc(100% - 1.5rem);
   background-color: #333;
   color: #f1f1f1;
   border: 1px solid #3f3f3f;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
+}
+
+select {
+  width: 100%;
 }
 
 textarea {
@@ -71,6 +75,21 @@ textarea {
 
 button.saved {
   background-color: #15314f;
+}
+
+.settings .toggle {
+  appearance: none;
+  background-color: #333;
+  border: 1px solid #3f3f3f;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition-duration: 250ms;
+}
+
+.settings .toggle:checked {
+  background-color: #235285;
 }
 
 .ad {
