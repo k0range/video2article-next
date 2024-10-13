@@ -23,17 +23,22 @@ export default {
   async mounted() {
     const urlParams = new URLSearchParams(window.location.search);
 
-    this.title = urlParams.get('title') || 'New Title';
-    this.content = await marked(urlParams.get('content') || ""); // iframeでアドレスは見えないのでクソ長URLクエリでも問題ない！ﾖｼ！
-    this.images = JSON.parse(urlParams.get('images') || '[]');
+    window.addEventListener('message', async (event) => {
+      if (event.data.type === 'articleData') {
+        const { title, content, images } = event.data;
 
-    this.content.match(/\[img\s\d+(?:\.\d+)?-\d+(?:\.\d+)?\]/g)?.forEach(async (match, index) => {
-      this.content = this.content.replace(match, `<img src="${this.images[index]}" />`);
+        this.title = title;
+        this.content = await marked(content || "");
+        
+        this.content.match(/\[img\s\d+(?:\.\d+)?-\d+(?:\.\d+)?\]/g)?.forEach(async (match, index) => {
+          this.content = this.content.replace(match, `<img src="${images[index]}" />`);
+        });
+
+        await nextTick();
+
+        window.parent.postMessage({ type: 'iframeHeight', height: document.documentElement.offsetHeight }, '*');
+      }
     });
-
-    await nextTick();
-
-    window.parent.postMessage({ type: 'iframeHeight', height: document.documentElement.offsetHeight }, '*');
   },
 };
 </script>
