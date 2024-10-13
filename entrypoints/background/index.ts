@@ -55,7 +55,7 @@ export default defineBackground(() => {
   }
 
   browser.runtime.onMessage.addListener((message: Message, sender, sendResponse) => {
-    if (message.type === "generateArticle") {      
+    if (message.type === "generateArticle") {
       storage.getItem('local:api_key').then((apiKey) => {
         if ( !apiKey ) {
           sendResponse({ type: 'no_api_key' });
@@ -68,16 +68,16 @@ export default defineBackground(() => {
 
         model.generateContent(message.text)
           .then((response) => {
-            console.log(response.response.text())
-            const responseText = response.response. text()
+            const responseText = response.response.text()
             sendResponse({ type: 'success', text: responseText });
           })
           .catch((error) => {
+            console.error(error)
             if (error.errorDetails[0].reason === "API_KEY_INVALID") {
               sendResponse({ type: 'invalid_api_key' });
               return
             }
-            console.log(error)
+            console.error(error)
           });
       });
     }
