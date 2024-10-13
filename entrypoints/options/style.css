@@ -3,6 +3,7 @@ body {
   background-color: #212121;
   padding: 1rem 1.25rem;
   margin: 0;
+  font-family: sans-serif;
 }
 
 label {
@@ -15,16 +16,20 @@ label {
   margin-left: 0.4rem;
 }
 
-h1 {
+.settings h1 {
   font-size: 1.5rem;
   border-bottom: 1px solid #3f3f3f;
   margin-top: 0.7rem;
 }
 
-h2 {
+.settings h2 {
   font-size: 1.3rem;
   margin-top: 1.75rem;
   margin-bottom: 0.35rem;
+}
+
+.settings label:first-of-type * {
+  margin-top: 0.4rem;
 }
 
 p {
@@ -52,7 +57,7 @@ textarea {
   resize: vertical;
 }
 
-button {
+.settings button {
   background-color: #235285;
   color: #f1f1f1;
   border: none;
@@ -66,4 +71,58 @@ button {
 
 button.saved {
   background-color: #15314f;
+}
+
+.ad {
+  border: #4d4d4d 1px solid;
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  margin: 1.2rem 0;
+  padding: 0.8rem 0.95rem;
+}
+
+.ad h1 {
+  font-size: 1.15em;
+  font-weight: normal;
+  margin-top: 0;
+  color: rgb(117, 191, 255);
+}
+
+.ad h2 {
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.ad p {
+  font-size: 1.1em;
+}
+
+.ad .button {
+  display: inline;
+  background-color: #235285;
+  color: #f1f1f1;
+  border: none;
+  padding: 0.55rem 1rem;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition-duration: 250ms;
+}
+
+.ad .button:hover {
+  background-color: #1f4772;
+}
+
+.ad .button-wrapper {
+  margin-top: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.ad img {
+  float: right;
+  width: 4rem;
+  height: 4rem;
+  margin-left: 1rem;
+  border-radius: 100%;
 }

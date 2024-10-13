@@ -8,8 +8,8 @@
     <script type="module" src="./script.js"></script>
   </head>
   <body>
-    <h1>設定</h1>
-    <div>
+    <div class="settings">
+      <!-- <h1>設定</h1> -->
       <label for="gemini-api-key">
         <h2>Gemini API キー</h2>
         <div class="required">*必須</div>
@@ -26,6 +26,17 @@
       <textarea id="custom-prompt" name="custom-prompt" rows="5"></textarea>
       
       <button id="save_button">保存</button>
+    </div>
+    <div class="ad" id="ad" style="display: none;">
+      <h1>👀 Korange の他の制作物</h1>
+      <img id="image" src="https://citronote.korange.work/_astro/icon.OVo7bDZQ_26gBq8.webp">
+      <h2 id="name"></h2>
+      <p id="description"></p>
+      <div class="button-wrapper">
+        <a id="button" href="" target="_blank">
+          <div class="button">詳しく見る</div>
+        </a>
+      </div>
     </div>
   </body>
 </html>

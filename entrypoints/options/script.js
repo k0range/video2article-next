@@ -21,5 +21,26 @@ function load() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', load);
+document.addEventListener('DOMContentLoaded', async () => {
+  load();
+
+  let creations = await (await fetch('https://korange.work/creations.json')).json();
+  creations = creations.ads.filter((creation) => creation.id !== 'video2article-next');
+
+  let creationsWithPriority = [];
+  for ( const creation of creations ) {
+    for ( let i = 0; i < creation.priority; i++ ) {
+      creationsWithPriority.push(creation);
+    }
+  }
+
+  const pickedCreation = creationsWithPriority[Math.floor(Math.random() * creationsWithPriority.length)];
+
+  const ad = document.getElementById('ad');
+  ad.querySelector('#name').textContent = pickedCreation.name;
+  ad.querySelector('#description').textContent = pickedCreation.description;
+  ad.querySelector('#button').href = pickedCreation.url;
+  ad.querySelector('#image').src = pickedCreation.icon;
+  ad.style.display = 'block';
+});
 document.getElementById('save_button').addEventListener('click', save);
