@@ -3,6 +3,7 @@ import { defineConfig } from 'wxt';
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   modules: ['@wxt-dev/module-vue'],
+  manifestVersion: 3,
   manifest: {
     name: "Video to Article Next",
     description: "YouTubeの動画をAIで記事に変換します。",
