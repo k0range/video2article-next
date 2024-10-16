@@ -53,7 +53,7 @@ export default defineContentScript({
           for (const match of matches) {
             const timeRange = match.replace(/\[img |\]/g, '');
             const [start, dur] = timeRange.split("-").map(parseFloat)
-            video.currentTime = start + dur / 3
+            video.currentTime = start + dur / 4
 
             await new Promise<void>((resolve) => {
               video.addEventListener('seeked', () => resolve(), { once: true });
