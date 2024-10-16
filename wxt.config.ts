@@ -14,7 +14,7 @@ export default defineConfig({
       256: "icon/256.png"
     },
     version: "1.1.1",
-    author: { email: "hi@korange.work" },
+    author: 'Korange',
     action: {
       default_popup: undefined
     },
@@ -22,6 +22,11 @@ export default defineConfig({
       resources: ['effect.html', 'effect.js', 'noise.png', 'sparkles.svg', 'reader.html'],
       matches: ['*://*.youtube.com/*']
     }],
+    browser_specific_settings: {
+      gecko: {
+        id: "video2article-next@ext.korange.work"
+      }
+    },
     permissions: ['tabs', 'storage']
   }
 });
