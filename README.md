@@ -13,31 +13,10 @@
 > また、Gemini APIを従量課金プランにしている場合、APIの使用料が発生します。
 
 ## インストール
-### Chromeウェブストアで配布中です🎉
-[![Available in the Chrome Web Store](https://github.com/user-attachments/assets/25b4a7b5-3d70-451b-8e13-04818bc875bd)](https://chromewebstore.google.com/detail/video-to-article-next/igakbobplmmapmegojikbofmjajommco)
+各ブラウザのアドオンストアで配布中です🎉
 
-<details>
-<summary>手動でインストールする方法</summary>
-
-----
-### Releases からダウンロード
-[このリポジトリのReleasesページ](https://github.com/k0range/video2article-next/releases/latest)から`video2article-next-～～-chrome.zip`をダウンロードします。
-![](readme-assets/releases.png)
-
-### ZIP ファイルを展開
-ダウンロードしたZIPファイルを展開します。
-
-### Chrome に追加
-1. [chrome://extensions](chrome://extensions)にアクセスし、画面右上の「デベロッパーモード」を有効にします。
-![](readme-assets/chrome-devmode.png)
-
-2. 「パッケージ化されていない拡張機能を読み込む」をクリックし、ZIPファイルを展開したフォルダを選択します。
-
-インストールはこれで完了です。利用するには 詳細 > 拡張機能のオプション にGeminiのAPIキーを入力する必要があります。
-
-----
-
-</details>
+[<img src="https://github.com/user-attachments/assets/25b4a7b5-3d70-451b-8e13-04818bc875bd" height=60 alt="Available in the Chrome Web Store">](https://chromewebstore.google.com/detail/video-to-article-next/igakbobplmmapmegojikbofmjajommco)
+[![Available in the Firefox](https://github.com/user-attachments/assets/c1e0510e-75de-4412-ae5b-0ff06da07eac)](https://addons.mozilla.org/ja/firefox/addon/video-to-article-next/)
 
 ## Gemini API キーの取得手順
 1. [Google AI Studio](https://aistudio.google.com/)を開きます。（Googleアカウントが必要です）
