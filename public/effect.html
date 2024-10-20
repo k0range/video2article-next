@@ -1,14 +1,14 @@
-<div class="effect" id="effect">
-  <div class="backdrop"></div>
-  <div class="rainbow-mist"></div>
-  <div class="horizontal-center">
-    <div class="generating-container">
-      <img class="icon-img">
-      <div class="generating-text">Generating</div>
+<div class="video2article_effect" id="video2article_effect">
+  <div class="video2article_backdrop"></div>
+  <div class="video2article_rainbow-mist"></div>
+  <div class="video2article_horizontal-center">
+    <div class="video2article_generating-container">
+      <img class="video2article_icon-img">
+      <div class="video2article_generating-text">Generating</div>
     </div>
-    <div class="article-container hidden">
+    <div class="video2article_article-container video2article_hidden">
       <div>
-        <button class="close-button">Close</button>
+        <button class="video2article_close-button">Close</button>
       </div>
     </div>
   </div>
@@ -20,15 +20,15 @@ html {
   overflow: hidden;
 }
 
-ytd-app:not(.closing) {
-  animation: blur 1s ease-in-out forwards;
+ytd-app:not(.video2article_closing) {
+  animation: video2article_blur 1s ease-in-out forwards;
 }
 
-ytd-app.closing {
-  animation: unblur 1s ease-in-out forwards;
+ytd-app.video2article_closing {
+  animation: video2article_unblur 1s ease-in-out forwards;
 }
 
-@keyframes blur {
+@keyframes video2article_blur {
   from {
     filter: blur(0px);
   }
@@ -37,7 +37,7 @@ ytd-app.closing {
   }
 }
 
-@keyframes unblur {
+@keyframes video2article_unblur {
   from {
     filter: blur(8px);
   }
@@ -46,20 +46,20 @@ ytd-app.closing {
   }
 }
 
-.effect {
+.video2article_effect {
   position: fixed;
   z-index: 99999;
   opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
+  animation: video2article_fadeIn 1s ease-in-out forwards;
 }
 
-@keyframes fadeIn {
+@keyframes video2article_fadeIn {
   to {
     opacity: 1;
   }
 }
 
-.horizontal-center {
+.video2article_horizontal-center {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -71,30 +71,30 @@ ytd-app.closing {
   overflow-y: scroll;
 }
 
-.generating-container {
+.video2article_generating-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   font-size: large;
   color: #ffffffdd;
   text-align: center;
-  animation: pulse 2s ease-in-out infinite;
+  animation: video2article_pulse 2s ease-in-out infinite;
 }
 
-.article-container {
+.video2article_article-container {
   text-align: center;
   margin-top: 10rem;
 }
 
-.hidden {
+.video2article_hidden {
   display: none;
 }
 
-.article-container iframe {
+.video2article_article-container iframe {
   width: 67rem;
 }
 
-.close-button {
+.video2article_close-button {
   background-color: #00000055;
   color: #ffffff;
   border: none;
@@ -106,7 +106,7 @@ ytd-app.closing {
   cursor: pointer;
 }
 
-@keyframes pulse {
+@keyframes video2article_pulse {
   0% {
     opacity: 1.0;
   }
@@ -118,16 +118,16 @@ ytd-app.closing {
   }
 }
 
-.sparkles img {
+.video2article_sparkles img {
   margin-bottom: 1rem;
 }
 
-.backdrop {
+.video2article_backdrop {
   backdrop-filter: blur(8px);
   background-color: #ffffff30;
   opacity: 0.08;
   background-size: 140px;
-  animation: noiseAnim 1s steps(10) infinite;
+  animation: video2article_noiseAnim 1s steps(10) infinite;
   position: fixed;
   top: -10%;
   left: -10%;
@@ -136,11 +136,11 @@ ytd-app.closing {
   transition-duration: 1500ms;
 }
 
-.backdrop.generated {
+.video2article_backdrop.video2article_generated {
   filter: blur(8px);
 }
 
-@keyframes noiseAnim {
+@keyframes video2article_noiseAnim {
   0% {
     background-position: 0 0;
   }
@@ -149,7 +149,7 @@ ytd-app.closing {
   }
 }
 
-.rainbow-mist {
+.video2article_rainbow-mist {
   backdrop-filter: blur(8px);
   position: fixed;
   top: -10%;
@@ -157,7 +157,7 @@ ytd-app.closing {
   width: 120%;
   height: 120%;
   pointer-events: none;
-  animation: mistAnimation 8s ease-in-out infinite;
+  animation: video2article_mistAnimation 8s ease-in-out infinite;
   transform: scale(1.1);
   opacity: 0.1;
   background: 
@@ -170,11 +170,11 @@ ytd-app.closing {
   mix-blend-mode: screen;
 }
 
-.rainbow-mist.generated {
-  animation: mistAnimation 32s ease-in-out infinite;
+.video2article_rainbow-mist.video2article_generated {
+  animation: video2article_mistAnimation 32s ease-in-out infinite;
 }
 
-@keyframes mistAnimation {
+@keyframes video2article_mistAnimation {
   0%, 100% {
     background-position: 0% 0%;
   }
@@ -189,14 +189,14 @@ ytd-app.closing {
   }
 }
 
-iframe {
-  animation: iframeAppear 1s ease-out forwards;
+.video2article_article-container iframe {
+  animation: video2article_iframeAppear 1s ease-out forwards;
   background-color: #212121;
   border: 1px solid #3f3f3f;
   border-radius: 12px;
 }
 
-@keyframes iframeAppear {
+@keyframes video2article_iframeAppear {
   from {
     transform: translateY(100vh);
     opacity: 0.4;
@@ -208,15 +208,15 @@ iframe {
   }
 }
 
-.fadeout {
-  animation: fadeOut 1s ease-in-out forwards;
+.video2article_fadeout {
+  animation: video2article_fadeOut 1s ease-in-out forwards;
   position: fixed;
   top: 0;
   height: 100vh;
   pointer-events: none;
 }
 
-@keyframes fadeOut {
+@keyframes video2article_fadeOut {
   from {
     opacity: 1;
   }
@@ -228,9 +228,9 @@ iframe {
 
 <script>
 function closeEffect() {
-  const effectElement = document.getElementById("effect");
+  const effectElement = document.getElementById("video2article_effect");
   if (effectElement) {
-    effectElement.classList.add("fadeout");
+    effectElement.classList.add("video2article_fadeout");
     effectElement.addEventListener("animationend", () => {
       effectElement.remove();
     });

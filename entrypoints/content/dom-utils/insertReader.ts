@@ -8,15 +8,15 @@ async function insertReader(effectDiv: HTMLDivElement, title: string, content: s
   readerIframe.src = readerUrl.toString();
   readerIframe.id = "video2article_readerIframe";
 
-  const articleContainer = effectDiv.getElementsByClassName("article-container")[0];
+  const articleContainer = effectDiv.getElementsByClassName("video2article_article-container")[0];
   articleContainer.insertBefore(readerIframe, articleContainer.firstChild);
-  articleContainer.classList.remove("hidden");
+  articleContainer.classList.remove("video2article_hidden");
 
-  const generatingContainer = effectDiv.getElementsByClassName("generating-container")[0] as HTMLElement;
-  generatingContainer.classList.add("fadeout");
+  const generatingContainer = effectDiv.getElementsByClassName("video2article_generating-container")[0] as HTMLElement;
+  generatingContainer.classList.add("video2article_fadeout");
 
-  effectDiv.getElementsByClassName("backdrop")[0].classList.add("generated");
-  effectDiv.getElementsByClassName("rainbow-mist")[0].classList.add("generated");
+  effectDiv.getElementsByClassName("video2article_backdrop")[0].classList.add("video2article_generated");
+  effectDiv.getElementsByClassName("video2article_rainbow-mist")[0].classList.add("video2article_generated");
   console.log(content)
   readerIframe.onload = () => {
     readerIframe.contentWindow?.postMessage({
