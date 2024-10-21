@@ -36,10 +36,30 @@ export default {
 
         await nextTick();
 
-        window.parent.postMessage({ type: 'iframeHeight', height: document.documentElement.offsetHeight }, '*');
+        const imgs = this.$el.querySelectorAll('img') as HTMLElement[];
+        let loadedImgsCount = 0;
+
+        if ( imgs.length === 0 ) {
+          this.postIframeHeight();
+        } else {
+          imgs.forEach(img => {
+            img.addEventListener('load', () => {
+              loadedImgsCount++;
+
+              if (loadedImgsCount === imgs.length) {
+                this.postIframeHeight();
+              }
+            });
+          });
+        }
       }
     });
   },
+  methods: {
+    postIframeHeight() {
+      window.parent.postMessage({ type: 'iframeHeight', height: document.documentElement.offsetHeight }, '*');
+    },
+  }
 };
 </script>
 
