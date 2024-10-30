@@ -1,3 +1,5 @@
+import { storage } from 'wxt/storage';
+
 import addEffect from "./dom-utils/addEffect";
 import insertReader from "./dom-utils/insertReader";
 
@@ -70,7 +72,8 @@ export default defineContentScript({
           }
           video.currentTime = currentTimeStore // 元の時間に戻す
 
-          await insertReader(effectDiv, videoTitle, content, images)
+          const escToClose = await storage.getItem('local:esc_to_close') ?? true
+          await insertReader(effectDiv, videoTitle, content, images, escToClose as boolean);
         }
       }
       return undefined
