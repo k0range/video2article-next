@@ -9,6 +9,8 @@
 // TODO: v-html サニタイズ
 // https://zenn.dev/kibe/articles/2a9f738a05dc5d
 
+import { storage } from 'wxt/storage';
+
 import { nextTick } from 'vue'
 import { marked } from 'marked';
 
@@ -52,6 +54,13 @@ export default {
             });
           });
         }
+      }
+    });
+
+    document.addEventListener('keydown', async (event) => {
+      const escToClose = await storage.getItem('local:esc_to_close') ?? true
+      if ( event.key === 'Escape' && escToClose ) {
+        window.parent.postMessage({ type: 'close' }, '*');
       }
     });
   },
