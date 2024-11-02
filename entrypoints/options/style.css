@@ -32,6 +32,22 @@ label {
   margin-top: 0.4rem;
 }
 
+.settings .row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  border: 1px solid #3f3f3f;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+
+.settings .row .text {
+  padding: 0.35rem 0;
+  margin-left: 0.3rem;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
 p {
   margin-top: 0;
   line-height: 1.5;

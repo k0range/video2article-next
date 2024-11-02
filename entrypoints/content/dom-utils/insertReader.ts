@@ -1,4 +1,7 @@
-async function insertReader(effectDiv: HTMLDivElement, title: string, content: string, images: string[] = []) {
+import closeEffect from "../utils/closeEffect";
+import keydownHandler from "../utils/keydownHandler";
+
+async function insertReader(effectDiv: HTMLDivElement, title: string, content: string, images: string[] = [], escToClose: boolean = true) {
   let readerUrl = new URL(chrome.runtime.getURL('reader.html'));
   //readerUrl.searchParams.append('title', title);
   //readerUrl.searchParams.append('content', content);
@@ -26,6 +29,11 @@ async function insertReader(effectDiv: HTMLDivElement, title: string, content: s
       images: images
     }, '*');
   };
+
+  // ESC to close
+  if ( escToClose ) {
+    document.addEventListener('keydown', keydownHandler);
+  }
 }
 
 export default insertReader
