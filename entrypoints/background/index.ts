@@ -35,18 +35,25 @@ export default defineBackground(() => {
     }
   }
   
-  browser.action.onClicked.addListener(function(){
+  function generateArticle() {
     getCurrentTab()
-      .then(result => {
-        if ( result.url ) {
-          browser.tabs.sendMessage(result.id, {"type": "clickedIcon"})
-  
-          const pattern = /^https?:\/\/(www\.)?youtube\.com\/watch\?.*/;
-            if (result.url.match(pattern)) {
-              const videoId = new URL(result.url).searchParams.get("v");
-            }
+    .then(result => {
+      if ( result.url ) {
+        browser.tabs.sendMessage(result.id, {"type": "clickedIcon"})
+
+        const pattern = /^https?:\/\/(www\.)?youtube\.com\/watch\?.*/;
+          if (result.url.match(pattern)) {
+            const videoId = new URL(result.url).searchParams.get("v");
           }
-      })
+        }
+    })
+  }
+
+  browser.action.onClicked.addListener(generateArticle);
+  browser.commands.onCommand.addListener((command) => {
+    if (command === "generate_article") {
+      generateArticle();
+    }
   });
 
   interface Message {
@@ -58,7 +65,7 @@ export default defineBackground(() => {
     if (message.type === "generateArticle") {
       storage.getItem('local:api_key').then((apiKey) => {
         if ( !apiKey ) {
-          sendResponse({ type: 'no_api_key' });
+          sendResponse({ type: 'no_api_key' }); // MEMO: sendResponseで謎エラーになるのは前からの問題、今回の実装は関係ないが要対処
           return
         }
 

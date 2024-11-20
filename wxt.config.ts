@@ -27,6 +27,15 @@ export default defineConfig({
         id: "video2article-next@ext.korange.work"
       }
     },
+    commands: {
+      generate_article: {
+        suggested_key: {
+          default: 'Alt+Shift+G',
+          mac: 'Alt+Shift+G'
+        },
+        description: '記事を生成'
+      }
+    },
     permissions: ['tabs', 'storage']
   }
 });
