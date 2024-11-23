@@ -16,7 +16,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "@tailwindcss/typography": "^0.5.15",
-    "marked": "^14.1.2",
+    "marked": "^15.0.0",
     "vue": "^3.4.34"
   },
   "devDependencies": {
