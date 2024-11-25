@@ -1,7 +1,7 @@
 {
   "name": "video2article-next",
   "description": "YouTubeの動画をAIで記事に変換します。",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "type": "module",
   "scripts": {
     "dev": "wxt",
@@ -16,7 +16,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "@tailwindcss/typography": "^0.5.15",
-    "marked": "^14.1.2",
+    "marked": "^15.0.0",
     "vue": "^3.4.34"
   },
   "devDependencies": {

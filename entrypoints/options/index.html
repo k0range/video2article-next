@@ -14,7 +14,7 @@
         <h2>Gemini API キー</h2>
         <div class="required">*必須</div>
       </label>
-      <p>Gemini の API キーです。<a href="https://ai.google.dev/gemini-api" target="_blank" rel="noopener noreferrer">公式サイト</a>から取得することができます。（従量課金を有効にしている場合、APIの使用料金が発生します）</p>
+      <p>生成に使用する Gemini の API キーです。<a href="https://github.com/k0range/video2article-next/blob/main/docs/get-gemini-api-key.md" target="_blank">取得方法</a><br>従量課金が有効な場合、APIの使用料金が発生します.</p>
       <input type="password" id="gemini-api-key" name="gemini-api-key" required>
 
       <br>
@@ -29,18 +29,18 @@
       </select>
 
       <label for="esc-to-close">
+        <h2>Esc キーでリーダーを閉じる</h2>
+      </label>
+      <select name="esc-to-close" id="esc-to-close">
+        <option value="true">有効</option>
+        <option value="false">無効</option>
+      </select>
+
+      <label for="shortcut-keys">
         <h2>ショートカットキー</h2>
       </label>
-      <div>
-        <div class="row">
-          <div class="text">Esc キーでリーダーを閉じる</div>
-          <div>
-            <select name="esc-to-close" id="esc-to-close">
-              <option value="true">有効</option>
-              <option value="false">無効</option>
-            </select>
-          </div>
-        </div>
+      <div class="block">
+        ブラウザの設定から変更できます。<a href="https://github.com/k0range/video2article-next/blob/main/docs/shortcut-key-settings.md" target="_blank">詳しく見る</a>
       </div>
 
       <label for="custom-prompt">

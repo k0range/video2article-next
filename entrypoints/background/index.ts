@@ -35,18 +35,25 @@ export default defineBackground(() => {
     }
   }
   
-  browser.action.onClicked.addListener(function(){
+  function generateArticle() {
     getCurrentTab()
-      .then(result => {
-        if ( result.url ) {
-          browser.tabs.sendMessage(result.id, {"type": "clickedIcon"})
-  
-          const pattern = /^https?:\/\/(www\.)?youtube\.com\/watch\?.*/;
-            if (result.url.match(pattern)) {
-              const videoId = new URL(result.url).searchParams.get("v");
-            }
+    .then(result => {
+      if ( result.url ) {
+        browser.tabs.sendMessage(result.id, {"type": "clickedIcon"})
+
+        const pattern = /^https?:\/\/(www\.)?youtube\.com\/watch\?.*/;
+          if (result.url.match(pattern)) {
+            const videoId = new URL(result.url).searchParams.get("v");
           }
-      })
+        }
+    })
+  }
+
+  browser.action.onClicked.addListener(generateArticle);
+  browser.commands.onCommand.addListener((command) => {
+    if (command === "generate_article") {
+      generateArticle();
+    }
   });
 
   interface Message {

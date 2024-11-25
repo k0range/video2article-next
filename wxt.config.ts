@@ -13,7 +13,7 @@ export default defineConfig({
       128: "icon/128.png",
       256: "icon/256.png"
     },
-    version: "1.2.0",
+    version: "1.3.0",
     author: 'Korange',
     action: {
       default_popup: undefined
@@ -25,6 +25,15 @@ export default defineConfig({
     browser_specific_settings: {
       gecko: {
         id: "video2article-next@ext.korange.work"
+      }
+    },
+    commands: {
+      generate_article: {
+        suggested_key: {
+          default: 'Alt+Shift+G',
+          mac: 'Alt+Shift+G'
+        },
+        description: '記事を生成'
       }
     },
     permissions: ['tabs', 'storage']

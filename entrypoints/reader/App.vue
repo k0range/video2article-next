@@ -6,9 +6,6 @@
 </template>
 
 <script lang="ts">
-// TODO: v-html サニタイズ
-// https://zenn.dev/kibe/articles/2a9f738a05dc5d
-
 import { storage } from 'wxt/storage';
 
 import { nextTick } from 'vue'
