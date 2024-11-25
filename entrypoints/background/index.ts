@@ -65,7 +65,7 @@ export default defineBackground(() => {
     if (message.type === "generateArticle") {
       storage.getItem('local:api_key').then((apiKey) => {
         if ( !apiKey ) {
-          sendResponse({ type: 'no_api_key' }); // MEMO: sendResponseで謎エラーになるのは前からの問題、今回の実装は関係ないが要対処
+          sendResponse({ type: 'no_api_key' });
           return
         }
 
