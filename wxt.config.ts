@@ -13,7 +13,7 @@ export default defineConfig({
       128: "icon/128.png",
       256: "icon/256.png"
     },
-    version: "1.2.0",
+    version: "1.3.0",
     author: 'Korange',
     action: {
       default_popup: undefined
