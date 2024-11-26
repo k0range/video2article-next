@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "baseBranches": ["develop"],
+  "dependencyDashboard": false,
+  "requiredStatusChecks": null,
+  "automergeStrategy": "squash",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
+}
